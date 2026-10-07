@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="cyberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="#090d16" />
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="none" stroke="url(#cyberGrad)" stroke-width="1.5" stroke-opacity="0.8" />
+  <!-- Book pages -->
+  <path d="M7 8.5C7 7.67 7.67 7 8.5 7H14.5C15.33 7 16 7.67 16 8.5V23.5C16 22.67 15.33 22 14.5 22H8.5C7.67 22 7 22.67 7 23.5V8.5Z" fill="#06b6d4" opacity="0.95" />
+  <path d="M25 8.5C25 7.67 24.33 7 23.5 7H17.5C16.67 7 16 7.67 16 8.5V23.5C16 22.67 16.67 22 17.5 22H23.5C24.33 22 25 22.67 25 23.5V8.5Z" fill="#6366f1" opacity="0.95" />
+  <!-- Central spine node -->
+  <circle cx="16" cy="15" r="1.5" fill="#ffffff" />
+  <!-- Cyber lines on pages -->
+  <line x1="9.5" y1="11" x2="13.5" y2="11" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+  <line x1="9.5" y1="14" x2="13.5" y2="14" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+  <line x1="9.5" y1="17" x2="12" y2="17" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+  <line x1="18.5" y1="11" x2="22.5" y2="11" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+  <line x1="18.5" y1="14" x2="22.5" y2="14" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+  <line x1="20" y1="17" x2="22.5" y2="17" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+</svg>
