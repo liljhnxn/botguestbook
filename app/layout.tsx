@@ -5,7 +5,7 @@ import { Providers } from "./providers";
 export const metadata: Metadata = {
   title: "BotGuestbook | On-Chain Guestbook on Botchain",
   description:
-    "A simple decentralized guestbook where messages are stored directly on Botchain Testnet.",
+    "A simple decentralized guestbook where messages are stored directly on Botchain Mainnet.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",

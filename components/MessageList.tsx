@@ -45,7 +45,7 @@ export function MessageList({ refreshSignal }: { refreshSignal?: number }) {
           Guestbook contract not configured yet
         </h3>
         <p className="text-xs text-slate-400 max-w-md mx-auto">
-          Deploy the smart contract to Botchain Testnet and set <code className="text-cyan-400 font-mono">NEXT_PUBLIC_BOT_GUESTBOOK_ADDRESS</code> in your environment to view and sign messages.
+          Deploy the smart contract to Botchain Mainnet and set <code className="text-cyan-400 font-mono">NEXT_PUBLIC_BOT_GUESTBOOK_ADDRESS</code> in your environment to view and sign messages.
         </p>
       </div>
     );
@@ -101,7 +101,7 @@ export function MessageList({ refreshSignal }: { refreshSignal?: number }) {
       {!isLoading && error && (
         <div className="glass-panel rounded-2xl p-6 text-center border-rose-500/30">
           <p className="text-sm text-rose-300 mb-3">
-            Unable to load guestbook messages from Botchain Testnet.
+            Unable to load guestbook messages from Botchain Mainnet.
           </p>
           <button
             onClick={() => refetch()}
@@ -122,7 +122,7 @@ export function MessageList({ refreshSignal }: { refreshSignal?: number }) {
             No messages yet
           </h4>
           <p className="text-xs text-slate-400 max-w-sm mx-auto">
-            Be the first pioneer to sign the guestbook and record your mark on Botchain Testnet!
+            Be the first pioneer to sign the guestbook and record your mark on Botchain Mainnet!
           </p>
         </div>
       )}

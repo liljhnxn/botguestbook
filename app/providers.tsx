@@ -3,15 +3,15 @@
 import { ReactNode, useState } from "react";
 import { WagmiProvider, createConfig, http, injected } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { botchainTestnet } from "@/lib/botchain";
+import { botchainMainnet } from "@/lib/botchain";
 
 export const wagmiConfig = createConfig({
-  chains: [botchainTestnet],
+  chains: [botchainMainnet],
   connectors: [
     injected(),
   ],
   transports: {
-    [botchainTestnet.id]: http("https://rpc.bohr.life"),
+    [botchainMainnet.id]: http("https://rpc.botchain.ai"),
   },
   ssr: true,
 });

@@ -1,6 +1,6 @@
 # BotGuestbook
 
-A simple, polished, decentralized on-chain guestbook built on **Botchain Testnet**.
+A simple, polished, decentralized on-chain guestbook built on **Botchain Mainnet**.
 
 Users connect their Web3 wallet and leave short messages (up to 280 characters). Each message is permanently and immutably etched into the Botchain blockchain, accompanied by the sender's wallet address and the block timestamp.
 
@@ -12,8 +12,8 @@ Users connect their Web3 wallet and leave short messages (up to 280 characters).
 - **On-Chain Message Storage**: Messages are directly stored on the Botchain blockchain in the smart contract storage.
 - **Block Timestamps**: Every message records an accurate on-chain block timestamp.
 - **Event-Driven**: Emits `MessageAdded` events on each entry for transparent indexing.
-- **Botchain Testnet Support**: Built specifically for Botchain Testnet (Chain ID `968`).
-- **Explorer Links**: Direct links to view transactions and sender addresses on the Botchain Explorer (`https://scan.bohr.life`).
+- **Botchain Mainnet Live**: Deployed on Botchain Mainnet (Chain ID `677`).
+- **Explorer Links**: Direct links to view transactions and sender addresses on the Botchain Explorer (`https://scan.botchain.ai`).
 - **Graceful Unconfigured Mode**: Cleanly warns users if the contract address has not yet been deployed or configured without breaking the UI.
 
 ---
@@ -28,15 +28,17 @@ Users connect their Web3 wallet and leave short messages (up to 280 characters).
 
 ---
 
-## 🌐 Botchain Testnet Configuration
+## 🌐 Botchain Mainnet Configuration
 
 | Property | Value |
 | :--- | :--- |
-| **Network Name** | Botchain Testnet |
-| **Chain ID** | `968` |
-| **RPC Endpoint** | `https://rpc.bohr.life` |
-| **Block Explorer** | `https://scan.bohr.life` |
-| **Currency Symbol** | `BOT` |
+| **Network Name** | Botchain Mainnet |
+| **Chain ID** | `677` |
+| **RPC Endpoint** | `https://rpc.botchain.ai` |
+| **Block Explorer** | `https://scan.botchain.ai` |
+| **Native Token** | `BOT` |
+| **Total Supply** | 150 Million BOT |
+| **Deployed Contract** | `0x37824B3E16B68dBcF34c9e05BB9a042d952ee73b` |
 
 ---
 
@@ -49,7 +51,8 @@ botguestbook/
 ├── test/
 │   └── BotGuestbook.ts         # Hardhat automated tests
 ├── scripts/
-│   └── deploy.ts               # Botchain Testnet deployment script
+│   ├── deploy-direct.js        # Direct zero-overhead Mainnet deployment script
+│   └── deploy.ts               # Hardhat deployment script
 ├── app/
 │   ├── page.tsx                # Main dApp single-page interface
 │   ├── layout.tsx              # Root layout & SEO meta tags
@@ -61,7 +64,7 @@ botguestbook/
 │   └── MessageList.tsx         # On-chain message cards (newest first)
 ├── lib/
 │   ├── contract.ts             # Contract ABI, address configuration & utilities
-│   └── botchain.ts             # Custom viem chain definition for Botchain Testnet
+│   └── botchain.ts             # Custom viem chain definition for Botchain Mainnet
 ├── .env.example                # Environment variable template
 ├── hardhat.config.ts           # Hardhat configuration
 ├── package.json
@@ -108,7 +111,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🚢 Deploying to Botchain Testnet
+## 🚢 Deploying to Botchain Mainnet
 
 ### 1. Configure Environment Variables
 
@@ -118,43 +121,48 @@ Copy `.env.example` to `.env`:
 cp .env.example .env
 ```
 
-Set your deployer account's private key (make sure the wallet holds some testnet BOT for gas):
+Set your deployer account's private key (make sure the wallet holds native BOT for gas):
 
 ```env
 PRIVATE_KEY=your_private_key_here
-BOTCHAIN_RPC_URL=https://rpc.bohr.life
-NEXT_PUBLIC_BOT_GUESTBOOK_ADDRESS=
+BOTCHAIN_RPC_URL=https://rpc.botchain.ai
+BOTCHAIN_MAINNET_RPC_URL=https://rpc.botchain.ai
+NEXT_PUBLIC_BOT_GUESTBOOK_ADDRESS=0x37824B3E16B68dBcF34c9e05BB9a042d952ee73b
 ```
 
 > **Security Note:** Never commit your real private key to version control. The `.env` file should remain in your `.gitignore`.
 
 ### 2. Deploy Contract
-
-Run the deployment script configured for Botchain Testnet:
-
+ 
+Run the deployment script configured for Botchain Mainnet:
+ 
 ```bash
-npm run deploy:testnet
+npm run deploy:mainnet
 ```
 
 Upon successful deployment, the script outputs:
 
 ```text
-BotGuestbook deployed successfully!
-Network: Botchain Testnet
-Chain ID: 968
-Contract: 0x...
-Explorer: https://scan.bohr.life/address/0x...
+==================================================
+SUCCESS! BotGuestbook deployed to Botchain Mainnet!
+==================================================
+Contract Address: 0x37824B3E16B68dBcF34c9e05BB9a042d952ee73b
+Gas Used: 535106
+Effective Gas Price: 20.0 gwei
+Total Gas Cost: 0.01070212 BOT
+Explorer Link: https://scan.botchain.ai/address/0x37824B3E16B68dBcF34c9e05BB9a042d952ee73b
+==================================================
 ```
 
 ### 3. Link Contract Address to Frontend
 
-Copy the generated contract address from the deployment output and paste it into your `.env`:
+Set the deployed contract address in `.env`:
 
 ```env
-NEXT_PUBLIC_BOT_GUESTBOOK_ADDRESS=0xYourDeployedContractAddress
+NEXT_PUBLIC_BOT_GUESTBOOK_ADDRESS=0x37824B3E16B68dBcF34c9e05BB9a042d952ee73b
 ```
 
-Restart the Next.js dev server or rebuild the application:
+Restart the Next.js dev server or build the application:
 
 ```bash
 npm run build

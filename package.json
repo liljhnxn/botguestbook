@@ -8,7 +8,8 @@
     "start": "next start",
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "deploy:testnet": "hardhat run scripts/deploy.ts --network botchainTestnet",
+    "deploy": "node scripts/deploy-direct.js",
+    "deploy:mainnet": "node scripts/deploy-direct.js",
     "verify": "node scripts/verify-contract.js"
   },
   "dependencies": {

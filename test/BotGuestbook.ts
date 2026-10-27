@@ -29,7 +29,7 @@ describe("BotGuestbook", function () {
 
   describe("Message creation", function () {
     it("A user can add a valid message, sender is correct, timestamp exists", async function () {
-      const text = "Hello Botchain Testnet!";
+      const text = "Hello Botchain!";
       const tx = await guestbook.connect(alice).addMessage(text);
       const receipt = await tx.wait();
       const block = await ethers.provider.getBlock(receipt!.blockNumber);

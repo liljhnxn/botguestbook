@@ -155,12 +155,12 @@ export const BOT_GUESTBOOK_ABI = [
   },
 ] as const;
 
-export const BOT_GUESTBOOK_ADDRESS: Address | undefined = (() => {
+export const BOT_GUESTBOOK_ADDRESS: Address = (() => {
   const addr = process.env.NEXT_PUBLIC_BOT_GUESTBOOK_ADDRESS?.trim();
   if (addr && addr.startsWith("0x") && addr.length === 42) {
     return addr as Address;
   }
-  return undefined;
+  return "0x37824B3E16B68dBcF34c9e05BB9a042d952ee73b" as Address;
 })();
 
 export function formatAddress(address: string): string {
@@ -180,9 +180,9 @@ export function formatTimestamp(timestampSeconds: bigint | number): string {
 }
 
 export function getExplorerTxUrl(txHash: string): string {
-  return `https://scan.bohr.life/tx/${txHash}`;
+  return `https://scan.botchain.ai/tx/${txHash}`;
 }
 
 export function getExplorerAddressUrl(address: string): string {
-  return `https://scan.bohr.life/address/${address}`;
+  return `https://scan.botchain.ai/address/${address}`;
 }

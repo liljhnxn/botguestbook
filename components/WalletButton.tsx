@@ -1,7 +1,7 @@
 "use client";
 
 import { useAccount, useConnect, useDisconnect, useSwitchChain, useChainId } from "wagmi";
-import { botchainTestnet } from "@/lib/botchain";
+import { botchainMainnet } from "@/lib/botchain";
 import { formatAddress, getExplorerAddressUrl } from "@/lib/contract";
 import { Wallet, LogOut, AlertTriangle, ExternalLink, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -49,11 +49,11 @@ export function WalletButton() {
   }
 
   // Wrong network state
-  const isWrongNetwork = chainId !== botchainTestnet.id;
+  const isWrongNetwork = chainId !== botchainMainnet.id;
   if (isWrongNetwork) {
     return (
       <button
-        onClick={() => switchChain({ chainId: botchainTestnet.id })}
+        onClick={() => switchChain({ chainId: botchainMainnet.id })}
         disabled={isSwitching}
         className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition-all cursor-pointer shadow-lg shadow-amber-500/10"
       >
@@ -65,20 +65,20 @@ export function WalletButton() {
         ) : (
           <>
             <AlertTriangle className="w-4 h-4 text-amber-400" />
-            <span>Switch to Botchain Testnet</span>
+            <span>Switch to Botchain Mainnet</span>
           </>
         )}
       </button>
     );
   }
 
-  // Connected to Botchain Testnet
+  // Connected to Botchain Mainnet
   return (
     <div className="flex items-center gap-2">
       {/* Network Badge */}
       <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-medium">
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-        <span>Botchain Testnet</span>
+        <span>Botchain Mainnet</span>
       </div>
 
       {/* Account Info Pill */}

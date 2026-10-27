@@ -3,7 +3,7 @@ pragma solidity ^0.8.24;
 
 /**
  * @title BotGuestbook
- * @notice A simple, lightweight on-chain guestbook for Botchain Testnet.
+ * @notice A simple, lightweight on-chain guestbook for Botchain Mainnet.
  */
 contract BotGuestbook {
     struct Message {

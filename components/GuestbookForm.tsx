@@ -7,7 +7,7 @@ import {
   useWaitForTransactionReceipt,
   useChainId,
 } from "wagmi";
-import { botchainTestnet } from "@/lib/botchain";
+import { botchainMainnet } from "@/lib/botchain";
 import {
   BOT_GUESTBOOK_ABI,
   BOT_GUESTBOOK_ADDRESS,
@@ -35,7 +35,7 @@ export function GuestbookForm({ onMessageAdded }: GuestbookFormProps) {
   const chainId = useChainId();
 
   const isContractConfigured = Boolean(BOT_GUESTBOOK_ADDRESS);
-  const isWrongNetwork = isConnected && chainId !== botchainTestnet.id;
+  const isWrongNetwork = isConnected && chainId !== botchainMainnet.id;
 
   const {
     writeContract,
@@ -76,7 +76,7 @@ export function GuestbookForm({ onMessageAdded }: GuestbookFormProps) {
     }
 
     if (isWrongNetwork) {
-      setValidationError("Please switch to Botchain Testnet to sign the guestbook.");
+      setValidationError("Please switch to Botchain Mainnet to sign the guestbook.");
       return;
     }
 
@@ -121,7 +121,7 @@ export function GuestbookForm({ onMessageAdded }: GuestbookFormProps) {
         <div>
           <h2 className="text-lg font-bold text-slate-100">Sign the Guestbook</h2>
           <p className="text-xs text-slate-400">
-            Write a message to be permanently etched into Botchain Testnet.
+            Write a message to be permanently etched into Botchain Mainnet.
           </p>
         </div>
       </div>
